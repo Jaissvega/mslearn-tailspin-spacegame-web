@@ -1,13 +1,17 @@
 pool:
    vmImage: 'Ubuntu-16.04'
-   demands:
-     -npm
-
+   
 steps:
 -  task: DotNetCoreInstaller@0
    displayName: 'Use .NET Core SDK 2.1.505'
    inputs: 
       version: 2.1.505
+
+- task: NodeTool@0
+  displayName: 'Node Install'
+  inputs: 
+       versionSpec: '6.x'
+- script: 'which task'
 
 - task: Npm@1
   displayName: 'Run npm install'
